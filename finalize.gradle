@@ -19,7 +19,7 @@ plugins {
 
 githubPages {
     repoUri = project.hasProperty('githubRepo') ? project.githubRepo : ''
-
+    deleteExistingFiles = true
     credentials {
         username = project.hasProperty('githubUsername') ? project.githubUsername : ''
         password = project.hasProperty('githubPassword') ? project.githubPassword : ''
@@ -27,6 +27,7 @@ githubPages {
 
     pages {
         from file("$rootDir/build/asciidoc/html5")
+        subprojects.each { p -> from file(p.projectDir) }
     }
 }
 

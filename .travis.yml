@@ -22,4 +22,4 @@ before_script:
 
 script:
   - ./gradlew clean publish -i --continue
-  - ./gradlew -b finalize.gradle -PgithubRepo=${GIT_URL} -PgithubUsername=${GIT_EMAIL} publishGhPages -i
+  - ./gradlew -b finalize.gradle -PgithubRepo=${GIT_URL} publishGhPages -i
